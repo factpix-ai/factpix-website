@@ -662,6 +662,7 @@
       var script = document.createElement('script');
       script.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
       script.onload = function () {
+        Paddle.Environment.set('sandbox');
         Paddle.Initialize({
           token: 'test_864399818e4d13726f607272bd8'
         });
