@@ -653,26 +653,22 @@
   <a href="https://wa.me/962796324364" class="wa-float" title="Chat on WhatsApp">💬</a>
 
   <!-- Paddle.js Checkout Overlay -->
-  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
       var txn = params.get('_ptxn');
       if (!txn) return;
 
-      function openPaddleCheckout() {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
+      script.onload = function () {
         Paddle.Initialize({
           token: 'test_864399818e4d13726f607272bd8',
           environment: 'sandbox'
         });
         Paddle.Checkout.open({ transactionId: txn });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', openPaddleCheckout);
-      } else {
-        openPaddleCheckout();
-      }
+      };
+      document.head.appendChild(script);
     })();
   </script>
 
