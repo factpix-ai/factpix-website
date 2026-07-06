@@ -663,13 +663,9 @@
       function openPaddleCheckout() {
         Paddle.Initialize({
           token: 'test_864399818e4d13726f607272bd8',
-          environment: 'sandbox',
-          eventCallback: function (data) {
-            if (data.name === 'paddle.initialized') {
-              Paddle.Checkout.open({ transactionId: txn });
-            }
-          }
+          environment: 'sandbox'
         });
+        Paddle.Checkout.open({ transactionId: txn });
       }
 
       if (document.readyState === 'loading') {
