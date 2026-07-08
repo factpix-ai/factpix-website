@@ -662,9 +662,9 @@
       var script = document.createElement('script');
       script.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
       script.onload = function () {
-        Paddle.Environment.set('sandbox');
+        Paddle.Environment.set('__PADDLE_ENVIRONMENT__');
         Paddle.Initialize({
-          token: 'test_864399818e4d13726f607272bd8'
+          token: '__PADDLE_CLIENT_TOKEN__'
         });
         Paddle.Checkout.open({ transactionId: txn });
       };
